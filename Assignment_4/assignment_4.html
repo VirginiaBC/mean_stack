@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Map and My Reduce Functions</title>
+  </head>
+  <body>
+    <script src="assignment_4.js"></script>
+    <script>
+      const numbers = [1, 2, 3, 4, 5];
+      
+      // Using myMap
+      const squaredNumbers = numbers.myMap(num => num ** 2);
+      console.log(squaredNumbers); // [1, 4, 9, 16, 25]
+      
+      // Using myReduce
+      const sum = numbers.myReduce((accumulator, num) => accumulator + num);
+      console.log(sum); // 15
+    </script>
+  </body>
+</html>
