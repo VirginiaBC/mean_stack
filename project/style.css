@@ -1,0 +1,25 @@
+header {
+	text-align: center;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 200px);
+    grid-template-rows: repeat(3, 200px);
+    gap: 10px;
+    justify-content: center;
+}
+
+.circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #ccc;
+}
+
+.timer {
+    position: absolute;
+    top: 0;
+    right: 15%;
+    padding: 10px 20px;
+    font-size: 15px;
+}
