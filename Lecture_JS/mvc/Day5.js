@@ -59,8 +59,8 @@ const Model = ((api, view) => {
 
     const { getTodoList } = api;
 
-    const { createTemp, render } = view;
-    const task_container = document.querySelector("#task_container");
+    const { domSelector, createTemp, render } = view;
+    //const task_container = document.querySelector("#task_container");
 
 
     class State {
@@ -79,7 +79,7 @@ const Model = ((api, view) => {
         set dataList(newList) {
             this._dataList = newList;
             const temp = createTemp(this._dataList);
-            render(task_container, temp);
+            render(domSelector.task_container, temp);
 
         }
     }
@@ -97,17 +97,18 @@ const Model = ((api, view) => {
 
 const Controller = ((model, view) => {
 
-    const { domSelector, createTemp, render } = view
+    const { domSelector} = view
     const { State, getTodoList } = model
 
     const state = new State();
     //state.dataList = api;
-
-    domSelector.addBtn.addEventListener('click', (event) => {
-        console.log(domSelector.inputForm.value)
-        const newList = [...state.dataList, {title: domSelector.inputForm.value}];
+    let nextId = 6
+    domSelector.addBtn.addEventListener('click', () => {
+        const newList = [...state.dataList, {
+            id: nextId++,
+            title: domSelector.inputForm.value
+        }];
         state.dataList = newList;
-
     })
 
     domSelector.task_container.addEventListener('click', (event) =>{
