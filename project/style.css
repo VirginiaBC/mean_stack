@@ -13,13 +13,16 @@ header {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    background-color: #ccc;
+    /* background-color: #ccc; */
+    border: 2px solid brown;
+    margin:10px;
+    background-size:cover;
 }
 
 .timer {
     position: absolute;
     top: 0;
-    right: 15%;
+    right: 5%;
     padding: 10px 20px;
     font-size: 15px;
 }
