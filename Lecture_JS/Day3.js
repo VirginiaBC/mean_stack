@@ -54,11 +54,11 @@
 
 // let { a, ...x } = { a: 1, c: 3 }
 
-let { a: x, b: y } = { a: 2, b: 3 }
-// console.log("a = ", a)
-// console.log("b = ", b)
-console.log("x = ", x)
-console.log("y = ", y)
+// let { a: x, b: y } = { a: 2, b: 3 }
+// // console.log("a = ", a)
+// // console.log("b = ", b)
+// console.log("x = ", x)
+// console.log("y = ", y)
 
 ///////////////////////////////////
 // const obj2 = {name:"JR", id:1}
@@ -76,7 +76,7 @@ console.log("y = ", y)
 /////////////////////////////////////////////////////////////
 // Arrow functions
 
-
+// "use strict"
 // function foo(){
 //     console.log("Normal fn");
 //     console.log(this);
@@ -86,7 +86,7 @@ console.log("y = ", y)
 // const foo = function () {
 //     console.log("Normal fn");
 //     console.log(this);
-//   }.bind(this)
+//   }
 
 //   const foo2 = () => {
 //     console.log("Arrow fn");
@@ -113,6 +113,16 @@ console.log("y = ", y)
 
 // https://www.w3schools.com/js/js_this.asp
 
+// const obj = {
+//     title: "developer"
+// }
+
+// function person(name, age){
+//     console.log(this.title + name + age);
+// }
+
+// person.bind(obj)("ad",39)
+
 // bind/ apply/ call
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind
 
@@ -131,10 +141,12 @@ console.log("y = ", y)
 //     console.log(this)
 // }
 // foo()
+// console.log(this.xy)
 
 // const testObj = {
 //     x:999
 // }
+
 // const module1 = {
 //     x: 42,
 //     y:this,
@@ -145,14 +157,25 @@ console.log("y = ", y)
 //       return this.x;
 //     },
 
+//     getY: function(){
+//         console.log(this.y)
+//     },
+
+//     getOutsideY: () => {
+//         console.log(this.y)
+//     },
+
 //     getOutsideX: function(){
 //         console.log(this.x)
 //         return this.x;
-//     }.bind(testObj)
+//     }.bind(this)
 //   };
-
+  
+//   module1.getY();
+//   module1.getOutsideY();
 //   module1.getX()
 //   module1.getOutsideX()
+//   console.log(this.x);
 
 //   const unboundGetX = function(){
 
@@ -334,6 +357,15 @@ console.log("y = ", y)
 // variables in the outer scope from its inner scope. 
 // The closure preserves the outer scope inside its inner scope.
 
+
+// function tem(){
+//     let score = 20;
+//     function get(){
+//         console.log(this)
+//         console.log(this.score)
+//     };
+// }
+// get()
 // function scoreBoard() {
 
 //     // Local variable that ends up within the closure 
@@ -490,23 +522,24 @@ console.log("y = ", y)
 // Filter an Array with a user input of minimum length
 
 
-// arr1 = ["123123", "123", "451511", "422"]
-// minimumLength = 5
+arr1 = ["123123", "123", "451511", "422"]
+minimumLength = 5
 
 
-// const cb = function(item){
-//     return function(length){
+// const cb = function(length){
+//     return function(item){
 //         return item.length > length
 //     }
 // }
-// console.log(arr1.filter(cb(5)))
 
-// function cb(item){
-//     return function(length){
-//         return item.length > length
-//     }
-// }
-// console.log(arr1.filter(res=>cb(res)(minimumLength)))
+// console.log(arr1.filter(cb(minimumLength)))
+
+function cb2(item){
+    return function(length){
+        return item.length > length
+    }
+}
+console.log(arr1.filter(res=>cb2(res)(minimumLength)))
 
 // Array.prototype.myReduce = function(cb, initial){
 //     console.log(this)

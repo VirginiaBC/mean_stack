@@ -7,7 +7,7 @@ const View = (() => {
         scoreDom: document.querySelector("#score"),
         getMoleHoles: () => {
             return document.querySelectorAll(".circle")
-        } 
+        } //object method: get the latest molehole status when call getMoleHoles
     }
 
     const createMoleDomList = (statusArr) => {
@@ -117,7 +117,8 @@ const Model = ((view) => {
             render(domSelector.gridContainer, moleList)
             for (let hole of domSelector.getMoleHoles()) {
                 hole.addEventListener('click', this._listener)
-            }
+            }// since after render the moleStatus to gridcontainer, 
+            //the previous event listener is cleared, so re-render it again.
         }
 
         renderScoreDom() {
@@ -218,7 +219,7 @@ const Controller = ((view, model) => {
         popupSnake = setInterval(popUpSnake, 2000)
         countDown = setInterval(() => {
             if (state.timeLeft == 0) {
-                state.renderScoreDom()
+                //state.renderScoreDom()
                 clearInterval(countDown)
                 clearInterval(popupMole)
                 clearInterval(popupSnake)
