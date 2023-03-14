@@ -71,28 +71,28 @@
 // sync(3000)
 
 
-const cb = (x) => {
-    console.log(x)
-}
-function main(){
-    let x = async(cb)
-}
+// const cb = (x) => {
+//     console.log(x)
+// }
+// function main(){
+//     let x = async(cb)
+// }
 
-function async(func){
-    setTimeout(() => {
+// function async(func){
+//     setTimeout(() => {
         
-        let str = "JR"
-        cb()
-        return str
+//         let str = "JR"
+//         cb()
+//         return str
 
-    }, 1000);
-}
+//     }, 1000);
+// }
 
-async(cb)
+// async(cb)
 
-console.log(str)
+// console.log(str)
 
-main()
+// main()
 
 
 ////////////////////////////////////////////////////////////////////
@@ -126,23 +126,24 @@ main()
 // //         , 400)
 // // }
 
-// const AuthAll = () => {
+const AuthAll = () => {
  
-//    setTimeout(()=>{
+   setTimeout(()=>{
       
-//       setTimeout(()=>{
-//        resA = 'A is true';
-//        return resA
-//     } , 1000)
+      setTimeout(()=>{
+       resA = 'A is true';
+       return resA
+    } , 1000)
 
-//       resB = resA + "B is true"; 
-//       return resB
+      resB = resA + "B is true"; 
+      return resB
 
-//    }
+   }
 
-//    , 500)
+   , 500)
 
-// } 
+} 
+AuthAll()
 
 // is there anyway that we can chain them as AsyncA.then(AsyncB).then(AsyncC)
 
@@ -284,33 +285,33 @@ main()
 
 // Async Await
 
-function resolveAfter2Seconds() {
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve('resolved first');
-      }, 2000);
-    });
-  }
+// function resolveAfter2Seconds() {
+//     return new Promise(resolve => {
+//       setTimeout(() => {
+//         resolve('resolved first');
+//       }, 2000);
+//     });
+//   }
 
 //  resolveAfter2Seconds().then(res=>console.log(res))
 //  resolveAfter2Seconds().then(res2=>console.log(res2))
 
  
 //   console.log(1)
- async function asyncCall() {
+//  async function asyncCall() {
 
-    console.log("inside async")
-    const result = await resolveAfter2Seconds();
+//     console.log("inside async")
+//     const result = await resolveAfter2Seconds();
 
-    console.log(result)
-    console.log("runs next")
-    // console.log(result)
-    // const result2 = await resolveAfter2Seconds().then().catch();
-    // console.log(result2)
-   }
+//     console.log(result)
+//     console.log("runs next")
+//     // console.log(result)
+//     // const result2 = await resolveAfter2Seconds().then().catch();
+//     // console.log(result2)
+//    }
   
-asyncCall();
-console.log("runs outside")
+// asyncCall();
+// console.log("runs outside")
 // console.log("here")
   
   

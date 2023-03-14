@@ -79,20 +79,21 @@
 
 // shallow copy and deep copy
 
-// const obj1 = {   // outer
-//     info :   // inner
-//     {
-//         name : "JR"
-//     },
-//     age : 30
-// }
+const obj1 = {   // outer
+    info :   // inner
+    {
+        name : "JR"
+    },
+    age : 30
+}
 
-// const obj2 = {
-//     ...obj1
-// }
+const obj2 = {
+    ...obj1
+}
 
-// obj2.age = 40
-// console.log(obj1)
+obj2.age = 40
+obj2.info.name = "JD"
+console.log(obj1)
 
 
 
@@ -241,72 +242,72 @@
 
 
 // // inheritance
-class Person {
-    constructor(name, age) {
-        this._name = name;
-        this._age = age;
-        this.salary = 0;
-    }
+// class Person {
+//     constructor(name, age) {
+//         this._name = name;
+//         this._age = age;
+//         this.salary = 0;
+//     }
 
-    get name() {
-        console.log('Get Name');
-        return this._name;
-    }
+//     get name() {
+//         console.log('Get Name');
+//         return this._name;
+//     }
 
-    set name(newName) {
-        console.log('Set name');
-        this._name = newName;
+//     set name(newName) {
+//         console.log('Set name');
+//         this._name = newName;
 
-    }
+//     }
 
-    getSalary() {
-        console.log('without param');
-        return this.salary;
-    }
-}
+//     getSalary() {
+//         console.log('without param');
+//         return this.salary;
+//     }
+// }
 
-class Employee extends Person {
-    constructor(name, age, company) {
-        super(name, age);
-        this.company = company
-    }
+// class Employee extends Person {
+//     constructor(name, age, company) {
+//         super(name, age);
+//         this.company = company
+//     }
 
-    getSalary(baseSalary) {
-        // console.log('With param');
-        return this.salary + baseSalary; // 0 + undefined => NaN
-    }
-    greetings(){ 
-        // 
-    }
-}
+//     getSalary(baseSalary) {
+//         // console.log('With param');
+//         return this.salary + baseSalary; // 0 + undefined => NaN
+//     }
+//     greetings(){ 
+//         // 
+//     }
+// }
 //prototype vs. _proto_ ([[prototype]])
 
-const JR = new Employee("JR",30,"Antra")
-// console.log(JR.getSalary(3000))
-console.dir(Array.apply())
-console.dir(Employee)
-console.dir(Employee.prototype)
-// console.dir(JR)
-// [[prototype]] = _proto_
+// const JR = new Employee("JR",30,"Antra")
+// // console.log(JR.getSalary(3000))
+// console.dir(Array.apply())
+// console.dir(Employee)
+// console.dir(Employee.prototype)
+// // console.dir(JR)
+// // [[prototype]] = _proto_
 
 
- const arr = new Array(3)
- Array.prototype.map = () =>{
-    console.log("My map")
- }
+//  const arr = new Array(3)
+//  Array.prototype.map = () =>{
+//     console.log("My map")
+//  }
 
- class subArr extends Array{
-    map(){
+//  class subArr extends Array{
+//     map(){
         
-    }
- }
- const newArr = new subArr(5)
- newArr.map(()=>{})
+//     }
+//  }
+//  const newArr = new subArr(5)
+//  newArr.map(()=>{})
 
- console.dir(newArr)
+//  console.dir(newArr)
 
- const newFoo = () => {}
- console.dir(newFoo)
+//  const newFoo = () => {}
+//  console.dir(newFoo)
 //  arr.map(()=>{})
 //  console.dir(arr)
 
