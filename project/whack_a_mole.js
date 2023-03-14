@@ -214,6 +214,7 @@ const Controller = ((view, model) => {
 
     domSelector.startBtn.addEventListener('click', () => {
         state.clear()
+
         domSelector.startBtn.hidden = true
         popupMole = setInterval(popUpMole, 1000)
         popupSnake = setInterval(popUpSnake, 2000)
